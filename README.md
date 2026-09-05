@@ -213,7 +213,7 @@ Como limitações, destacam-se o tamanho reduzido da base (156 registros) e a au
 
 A apresentação completa do projeto pode ser acessada pelos links abaixo:
 
-🔗 Notebook (Entrega 1): [link do YouTube](#) — *adicionar após gravação*
+🔗 Notebook (Entrega 1): [Assista no YouTube](https://youtu.be/NmYeBJ02kzU)
 
 🔗 Estimativa AWS (Entrega 2): [link do YouTube](#) — *adicionar após gravação*
 
