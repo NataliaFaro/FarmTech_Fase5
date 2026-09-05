@@ -123,9 +123,17 @@ Por esse motivo, a clusterização apenas por variáveis climáticas não separa
 
 ![Boxplot Rendimento](docs/boxplot_rendimento_cultura.png)
 
+### Matriz de correlação entre variáveis climáticas
+
+![Matriz de Correlação](docs/matriz_correlacao.png)
+
 ### Método do Cotovelo (K-Means)
 
 ![Método do Cotovelo](docs/metodo_cotovelo.png)
+
+### Clusters formados (K-Means com clima + rendimento)
+
+![Clusters K-Means](docs/clusters_kmeans.png)
 
 ### Outliers identificados pelo DBSCAN
 
@@ -158,10 +166,8 @@ Foram desenvolvidos e comparados 5 modelos de regressão para prever o rendiment
 | Regressão Linear | 3.132,80 | 4.394,17 | 0,9950 |
 | Random Forest | 2.729,69 | 4.808,27 | 0,9940 |
 | Árvore de Decisão | 3.440,69 | 5.640,31 | 0,9918 |
-| XGBoost | 3.294,44 | 6.292,77 | 0,9898 |
+| XGBoost | 3.987,72 | 6.753,67 | 0,9882 |
 | KNN Regressor | 10.992,28 | 17.919,44 | 0,9172 |
-
-> ⚠️ *Atualize esta tabela com os valores exatos obtidos na sua execução no Colab, já que o XGBoost pode variar ligeiramente entre execuções.*
 
 ### Interpretação
 
