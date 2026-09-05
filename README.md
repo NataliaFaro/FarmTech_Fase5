@@ -179,13 +179,69 @@ Surpreendentemente, a **Regressão Linear** obteve o melhor desempenho entre os 
 
 ---
 
-## ☁️ Computação em Nuvem (AWS)
+## Entrega 2 – Estimativa de Custos AWS e Justificativa Técnica
 
-Foi realizada uma estimativa de custos (On-Demand, 100%) na calculadora da AWS para uma instância Linux com 2 CPUs, 1 GiB de memória, até 5 Gigabit de rede e 50 GB de armazenamento, comparando as regiões de São Paulo (Brasil) e Norte da Virgínia (EUA).
+# ☁️ Computação em Nuvem (AWS)
 
+## 1. Estimativa de custos (AWS Pricing Calculator)
+
+Foi realizada uma estimativa de custos (modelo **On-Demand, 100% de utilização**) para uma instância Linux com as seguintes especificações, conforme exigido:
+
+- **2 vCPUs**
+- **1 GiB de memória**
+- **Até 5 Gigabit de rede**
+- **50 GB de armazenamento (EBS)**
+
+A instância que atende exatamente a essas especificações é a **t3.micro** (família T3, 2 vCPU, 1 GiB de memória, rede "Up to 5 Gigabit").
+
+| Região | Custo mensal estimado | Custo anual estimado |
+| --- | ---: | ---: |
+| São Paulo (Brasil) | US$ 19,86 | US$ 238,32 |
+| Norte da Virgínia (EUA) | US$ 11,59 | US$ 139,08 |
+
+**Diferença:** US$ 8,27/mês (a região dos EUA é aproximadamente 71% mais barata que São Paulo).
+
+Esta é uma decisão que prioriza desempenho e conformidade regulatória em detrimento de uma pequena economia financeira — uma escolha comum e recomendada para aplicações que lidam com dados sensíveis ou que exigem baixa latência local.
 ![AWS Pricing Calculator](docs/aws_pricing_calculator.png)
 
-*Seção a ser detalhada com os valores e a justificativa técnica após a conclusão da Entrega 2.*
+## 2. Qual a solução mais barata?
+
+A região de **Norte da Virgínia (EUA)** é a opção mais barata, com um custo mensal de US$ 11,59, contra US$ 19,86 em São Paulo. Essa diferença de preço é comum e esperada: a região de São Paulo tem custos de infraestrutura mais altos (energia, importação de hardware, impostos locais) e uma demanda menor.
+
+## 3. Qual região escolher, considerando acesso rápido aos dados e restrições legais de armazenamento no exterior?
+
+Apesar do custo mais alto, a recomendação técnica é hospedar a solução na região de **São Paulo (Brasil)**, pelos seguintes motivos:
+
+### 3.1 Latência e acesso rápido aos dados
+
+A API vai receber dados em tempo real de sensores instalados fisicamente na fazenda, localizada no Brasil. Hospedar o servidor em São Paulo reduz significativamente a latência de rede entre os sensores (ou gateways IoT na fazenda) e o servidor. Isso é especialmente importante em cenários de:
+
+- Monitoramento em tempo real (ex: irrigação automatizada, alertas de anomalias climáticas);
+- Sistemas que dependem de resposta rápida para tomada de decisão (ex: acionamento de atuadores no campo).
+
+Uma latência mais alta (hospedando nos EUA) poderia comprometer a experiência de sistemas que dependem de resposta em tempo real, mesmo que o impacto não seja crítico para todos os casos de uso.
+
+### 3.2 Conformidade legal (LGPD)
+
+A Lei Geral de Proteção de Dados (LGPD) não proíbe de forma absoluta o armazenamento de dados fora do Brasil, mas impõe requisitos e salvaguardas específicas para transferências internacionais de dados pessoais (Art. 33 da LGPD), o que aumenta a complexidade jurídica e operacional caso a empresa opte por armazenar dados no exterior.
+
+Considerando que a atividade pede explicitamente atenção a **"restrições legais para armazenamento no exterior"**, o caminho mais seguro e simples do ponto de vista de compliance é manter os dados dentro do território nacional, evitando:
+
+- A necessidade de cláusulas contratuais específicas para transferência internacional;
+- Riscos de auditoria e questionamentos sobre onde os dados dos produtores rurais estão armazenados;
+- Possível insegurança jurídica caso a legislação de proteção de dados se torne mais restritiva no futuro.
+
+### 3.3 Equilíbrio custo x benefício
+
+A diferença de custo entre as duas regiões (US$ 8,27/mês, ou aproximadamente US$ 99/ano) é relativamente pequena em termos absolutos, especialmente para uma aplicação simples como a proposta (uma API recebendo dados de sensores). Esse valor não justifica abrir mão dos benefícios de latência reduzida e conformidade legal simplificada.
+
+### 3.4 Conclusão
+
+**A região escolhida é São Paulo (Brasil)**. Embora represente um custo aproximadamente 71% maior que Norte da Virgínia, essa escolha:
+
+- Garante menor latência para os dados dos sensores agrícolas, que estão fisicamente no Brasil;
+- Simplifica a conformidade com a LGPD, evitando a complexidade de transferências internacionais de dados;
+- Representa um acréscimo de custo absoluto pequeno (menos de US$ 10/mês) diante dos benefícios de desempenho e segurança jurídica.
 
 ---
 
