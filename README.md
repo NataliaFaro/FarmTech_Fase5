@@ -215,7 +215,7 @@ A apresentação completa do projeto pode ser acessada pelos links abaixo:
 
 🔗 Notebook (Entrega 1): [Assista no YouTube](https://youtu.be/NmYeBJ02kzU)
 
-🔗 Estimativa AWS (Entrega 2): [link do YouTube](#) — *adicionar após gravação*
+🔗 Estimativa AWS (Entrega 2): [Assista no YouTube](https://youtu.be/2FfL9UqLiF8)
 
 O vídeo demonstra:
 
